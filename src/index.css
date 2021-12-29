@@ -5,9 +5,253 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #161C27;
+}
+.container{
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.weatherBoxBorder{
+  position: absolute;
+  width: 620px;
+  height: 220px;
+  background-color: #242C3D;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.weatherBox{
+  width: 600px;
+  height: 200px;
+  background-color: #111620;
+  border-radius: 10px;
+  color: #9AB7EF;
+}
+.weatherBox_toggle{
+  height: 400px;
+  transition: 1s ease-out height;
+}
+.weatherBoxBorder_toggle{
+  height: 420px;
+  transition: 1s ease-out height;
+}
+input{
+  width: 300px;
+  height: 40px;
+  border: 1px solid #242C3D;
+  border-radius:5px;
+  margin:20px 20px 30px 20px;
+  background: #161C27;
+  color: #9AB7EF;
+  letter-spacing: 1px;
+  padding:  0 35px;
+  font-size: 1rem;
+}
+input:focus{
+  outline-color: #54648A;
+}
+button {
+ width: 140px;
+ height: 40px;
+ font-size: 1.2rem;
+ cursor: pointer;
+ border: none;
+ border-radius:20px;
+ padding:10px;
+ outline: none;
+ background: transparent;
+ color: #9AB7EF;
+ font-weight: 600;
+ letter-spacing: .5px;
+ position: relative;
+ transition: all 0.5s;
+ z-index: 1;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button::before {
+ content: "";
+ position: absolute;
+ top:3px;
+ left: 0;
+ width: 5px;
+ height: 100%;
+ border-radius: 20px;
+ background-color: #9AB7EF;
+ z-index: -1;
+ transition: all 0.5s;
+}
+
+button:hover::before {
+ width: 100%;
+}
+
+button:hover {
+ color: black;
+}
+
+button:active:before {
+ background: #b9b9b9;
+}
+.icon{
+  position: relative;
+  left:50px;
+  top:4px;
+  color:#54648A;
+}
+h1{
+  margin-left: 40px;
+  letter-spacing: 1px;
+}
+.weatherData p{
+  font-size: 1.2rem;
+  width: 200px;
+}
+.weatherData p:first-child{
+  margin-left: 40px;
+}
+.weatherData{
+  display: flex;
+  color:#54648A;
+}
+.weatherData img{
+  width: 70px;
+  margin-right:40px;
+}
+.weatherDescription{
+  display: flex;
+  flex-direction:column;
+}
+
+span{
+color:#9AB7EF;
+}
+hr{
+  border-left: none;
+  margin: 20px 20px;
+  border-color: #54648A;
+}
+.error{
+  margin-left: 40px;
+  font-size: 1.2rem;
+  color: #C84B31;
+}
+
+
+/* ---------------------------media queries----------------------------------- */
+@media only screen and (max-width:425px) {
+  .weatherBox{
+    width:350px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    animation: none;
+  }
+  .weatherBoxBorder{
+    width:370px;
+    height: 720px;
+    animation: none;
+  }
+  input{
+    width: 300px;
+    height: 45px;
+    text-align: center;
+    padding: 0;
+    margin: 30px auto 40px;
+  }
+  button {
+   width: 160px;
+   height: 50px;
+   border-radius:30px;
+   margin-bottom: 20px;
+   padding:10px;
+  }
+
+  button::before {
+   border-radius: 30px;
+  }
+  .icon{
+    top:63px;
+    left: -130px;
+  }
+  .weatherBox h1{
+    width: 300px;
+    font-size: 2rem;
+    text-align: center;
+    margin:70px 0 50px;
+  }
+  .weatherData{
+    display: flex;
+    flex-direction: column;
+  }
+  .weatherData p{
+    width: 325px;
+    text-align: center;
+  }
+  .weatherData p:first-child{
+    margin-left: 0;
+  }
+  .weatherDescription{
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+  }
+  .weatherData img{
+    position: absolute;
+    bottom:35px;
+    right:110px;
+  }
+  hr{
+    margin:0;
+    width: 50px;
+    align-self: center;
+  }
+  .error{
+    margin: 40px 10px 0 -20px;
+  }
+}
+
+@media (max-width:375px) {
+  .weatherBox{
+    width: 325px;
+    height: 650px;
+  }
+  .weatherBoxBorder{
+    width: 345px;
+    height: 670px;
+  }
+  input{
+    width: 280px;
+    height: 45px;
+    margin: 30px auto 40px;
+  }
+  button{
+    width: 160px;
+    height: 50px;
+    border-radius:30px;
+    margin-bottom: 20px;
+    padding:10px;
+  }
+  button::before {
+     border-radius: 30px;
+  }
+  .icon{
+    left:-120px;
+  }
+  .weatherBox h1{
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+  }
+  .weatherData img{
+    position: absolute;
+    bottom:25px;
+    right:100px;
+  }
+  .weatherData p{
+    width: 280px;
+  }
 }
